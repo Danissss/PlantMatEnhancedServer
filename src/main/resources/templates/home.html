@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Plant Glycosider</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+    <style>
+    	textarea {
+		  width: 1000px;
+		  height: 850px;
+		}
+    </style>
+</head>
+<body>
+    <div class="container">
+		<div>
+			<h1>Welcome to Plant Glycosider</h1>
+		</div>
+		
+		<div>
+			<p>
+				Plant Glycosider will add sugar compounds to primary metabolites of plant to simulate the 
+				glycosylation process. This work is inspired by <a href="https://pubs.acs.org/doi/abs/10.1021/acs.analchem.6b00906">PlantMat</a>
+			</p>
+		</div>
+		
+		
+		<table class="table table-striped">
+		  <thead>
+		    <tr>
+		      <th scope="col">API</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>
+		      	<table class="table table-striped">
+		      	  <tbody>
+		      	    <tr>
+		      	      <th scope="row">Rule</th>
+		      	      <td>GET: <code>https://glcosider.biotransformerdb.ca/api/generate/{smiles string}</code></td>
+		      	    </tr>
+		      	    <tr>
+		      	      <th scope="row">Example</th>
+		      	      <td>GET: <code>https://glcosider.biotransformerdb.ca/api/generate/OC1=CC=CC=C1O</code><br>
+		      	      </td>
+		      	    </tr>
+		      	    <tr>
+		      	    	<th scope="row"> Result </th>
+		      	    	<td>
+		      	    		<textarea>
+{
+    "0": "O(C1=C(C(=C(C(=C1O[H])[H])[H])[H])[H])C2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "1": "O(C1=C(C(=C(C(=C1O[H])[H])[H])[H])[H])C2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H]",
+    "2": "O(C1=C(C(=C(C(=C1O[H])[H])[H])[H])[H])C2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H]",
+    "3": "O(C1=C(C(=C(C(=C1O[H])[H])[H])[H])[H])C2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "4": "O(C1=C(C(=C(C(=C1O[H])[H])[H])[H])[H])C(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "5": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])[H]",
+    "6": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])[H]",
+    "7": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])[H]",
+    "8": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])[H]",
+    "9": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])[H]",
+    "10": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "11": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "12": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "13": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "14": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "15": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "16": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "17": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "18": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "19": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "20": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "21": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "22": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "23": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "24": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "25": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "26": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "27": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "28": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "29": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "30": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "31": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "32": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "33": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "34": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "35": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "36": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "37": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "38": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "39": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "40": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "41": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "42": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "43": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])(C(C2(O[H])[H])(O[H])[H])[H])([H])[H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "44": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "45": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "46": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "47": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "48": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "49": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C(C3(O[H])OC(C(O[H])(C(O[H])(C3(O[H])[H])[H])[H])([H])[H])([H])[H]",
+    "50": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C(C3(O[H])[H])(O[H])[H])(O[H])[H])[H])[H]",
+    "51": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "52": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3([H])[H])(O[H])[H])[H])[H]",
+    "53": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "54": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "55": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C3(OC(C(O[H])([H])[H])(C(C3(O[H])[H])(O[H])[H])[H])[H]",
+    "56": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "57": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C2([H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "58": "O(C1=C(C(=C(C(=C1OC2(OC(C(O[H])([H])[H])(C(C(C2(O[H])[H])(O[H])[H])(O[H])[H])[H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]",
+    "59": "O(C1=C(C(=C(C(=C1OC(C2(O[H])OC(C(O[H])(C(O[H])(C2(O[H])[H])[H])[H])([H])[H])([H])[H])[H])[H])[H])[H])C3(OC(C(O[H])(C(C3(O[H])[H])(O[H])[H])[H])([H])[H])[H]"
+}
+		      	    		</textarea>
+		      	    	</td>
+		      	    </tr>
+		      	  </tbody>
+		      	</table>
+		      </td>
+		    </tr>
+		   </tbody>
+		 </table>
+
+	</div>
+    
+    
+    
+    
+    
+    
+    
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</body>
+</html>
