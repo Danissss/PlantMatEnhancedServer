@@ -82,6 +82,13 @@
 		    <artifactId>jquery</artifactId>
 		    <version>3.1.1</version>
 		</dependency>
+		<dependency>
+	      <groupId>WishartLab</groupId>
+		  <artifactId>FoodbScript</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+	      <scope>system</scope>
+	      <systemPath>${project.basedir}/lib/plantglycosider.jar</systemPath>
+	    </dependency>
 	</dependencies>
 
 	<dependencyManagement>
