@@ -55,6 +55,8 @@ public class GlycosiderAPI {
 			json.put("Error", "Internal Error");
 		}
 		
+//		json.put("test", "test");
+		
 		
 		return json;
     }
